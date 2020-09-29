@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+import Header from './component/Header/Header';
+import HomePage from './component/HomePage/HomePage';
+import NavCompomemt from './component/NavComponent/NavCompomemt';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+          <Route path="/services">
+            <NavCompomemt />
+            <div style={{backgroundColor:'red',width:'100%',height:'100vh'}}></div>
+          </Route>
+          <Route path="/product">
+            <NavCompomemt />
+            <div style={{backgroundColor:'green',width:'100%',height:'100vh'}}></div>
+          </Route>
+          <Route path="/contact">
+            <NavCompomemt />
+            <div style={{backgroundColor:'yellow',width:'100%',height:'100vh'}}></div>
+          </Route>
+          <Route path="/signup">
+            <NavCompomemt />
+            <div style={{backgroundColor:'black',width:'100%',height:'100vh'}}></div>
+          </Route>
+          <Route path="/">
+              <NavCompomemt />
+              <HomePage></HomePage>
+          </Route>
+        </Switch>
+      
+    </Router>
+    
   );
 }
+
 
 export default App;
